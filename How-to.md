@@ -18,7 +18,7 @@ git pull
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 rm -rf ./tmp
-rm -f .config
+# rm -f .config
 make menuconfig
 ```
 
