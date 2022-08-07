@@ -1,12 +1,25 @@
 # VPS
 
 ``` shell
+# First time
 cd lede
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 git pull
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+make menuconfig
+```
+
+``` shell
+# Second time and on
+cd lede
+git pull
+./scripts/feeds update -a
+./scripts/feeds install -a
+rm -rf ./tmp
+rm -f .config
+make menuconfig
 ```
 
 ``` shell
