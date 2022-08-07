@@ -17,6 +17,7 @@ cd lede
 git pull
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+# make defconfig
 rm -rf ./tmp
 # rm -f .config
 make menuconfig
