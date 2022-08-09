@@ -38,6 +38,8 @@ echo "src-git kenzo https://github.com/kenzok8/openwrt-packages" >> ./feeds.conf
 echo "src-git small https://github.com/kenzok8/small" >> ./feeds.conf.default
 echo "src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git" >> ./feeds.conf.default
 echo "src-git cloudflarespeedtest https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest.git" >> ./feeds.conf.default
+echo "src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git" >> ./feeds.conf.default
+echo "src-git netspeedtest https://github.com/sirpdboy/NetSpeedTest.git" >> ./feeds.conf.default
 ```
 
 Copy content of diffconfig to x86_64.config
