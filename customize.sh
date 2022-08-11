@@ -15,7 +15,8 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-se
 git clone https://github.com/esirplayground/luci-app-poweroff.git openwrt/package/luci-app-poweroff
 
 #4. Add CloudflareSpeedtest's language
-echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh_Hans=y' >> openwrt/.config
+echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh-cn=y' >> openwrt/.config
+#echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh_Hans=y' >> openwrt/.config
 
 # Replace with JerryKuKu’s Argon
 #rm openwrt/package/lean/luci-theme-argon -rf
