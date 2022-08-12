@@ -32,6 +32,8 @@ make menuconfig
 
 # GitHub
 
+## Build_OP_x86_64.yml
+
 Add the following codes to /.github/workflows/Build_OP_x86_64.yml
 
 ``` shell
@@ -42,10 +44,18 @@ echo "src-git cloudflarespeedtest https://github.com/mingxiaoyu/luci-app-cloudfl
 echo "src-git netspeedtest https://github.com/sirpdboy/NetSpeedTest.git" >> ./feeds.conf.default
 ```
 
+## x86_64.config
+
 Copy content of diffconfig to x86_64.config
+
+## customize.sh
+
+hostname: `/etc/config/system`
+
+ip, dns, gateway, broadcast,dhcp: `/etc/config/network`
 
 # ESXi
 
 ``` shell
-vmkfstools -i openwrt-x86-64-generic-squashfs-rootfs.vmdk openwrt.vmdk
+vmkfstools -i openwrt-x86-64-generic-squashfs-rootfs.vmdk OpenWrt.vmdk
 ```
