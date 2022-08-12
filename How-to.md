@@ -44,6 +44,11 @@ echo "src-git cloudflarespeedtest https://github.com/mingxiaoyu/luci-app-cloudfl
 echo "src-git netspeedtest https://github.com/sirpdboy/NetSpeedTest.git" >> ./feeds.conf.default
 ```
 
+``` shell
+echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh-cn=y' >> .config
+echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh_Hans=y' >> .config
+```
+
 ## x86_64.config
 
 Copy content of diffconfig to x86_64.config
