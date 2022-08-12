@@ -18,5 +18,8 @@ git clone https://github.com/esirplayground/luci-app-poweroff.git openwrt/packag
 echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh-cn=y' >> openwrt/.config
 #echo 'CONFIG_PACKAGE_luci-i18n-cloudflarespeedtest-zh_Hans=y' >> openwrt/.config
 
+#5. Modify hostname
+sed -i '$ised -i '"'"'s/OpenWrt/WYC/g'"'"' /etc/config/system' openwrt/package/lean/default-settings/files/zzz-default-settings
+
 # Replace with JerryKuKu’s Argon
 #rm openwrt/package/lean/luci-theme-argon -rf
