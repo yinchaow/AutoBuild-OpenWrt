@@ -52,7 +52,7 @@ Copy content of diffconfig to x86_64.config
 
 hostname: `/etc/config/system`
 
-ip, dns, gateway, broadcast,dhcp: `/etc/config/network`
+ip, dns, gateway, broadcast, dhcp: `/etc/config/network`
 
 # ESXi
 
