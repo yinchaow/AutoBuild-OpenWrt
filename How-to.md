@@ -50,9 +50,11 @@ Copy content of diffconfig to x86_64.config
 
 ## customize.sh
 
-hostname: `/etc/config/system`
+### hostname
+`sed -i '$ised -i '"'"'s/OpenWrt/WYC_OpenWrt/g'"'"' /etc/config/system' openwrt/package/lean/default-settings/files/zzz-default-settings`
 
-ip, dns, gateway, broadcast, dhcp: `/etc/config/network`
+### ip, dns, gateway, broadcast, dhcp
+`/etc/config/network`
 
 # ESXi
 
