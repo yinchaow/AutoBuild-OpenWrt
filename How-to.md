@@ -61,7 +61,11 @@ sed -i '$ised -i '"'"'s/OpenWrt/WYC/g'"'"' /etc/config/system' openwrt/package/l
 ```
 
 ### ip, dns, gateway, broadcast, dhcp
-`/etc/config/network`
+``` shell
+sed -i '$i\ \ \ \ \ \ \ \ option gateway '"'"'192.168.7.2'"'"'' /etc/config/network
+sed -i '$i\ \ \ \ \ \ \ \ option broadcast '"'"'192.168.7.255'"'"'' /etc/config/network
+sed -i '$i\ \ \ \ \ \ \ \ option dns '"'"'223.5.5.5\ 223.6.6.6\ 119.29.29.29\ 114.114.114.114'"'"'' /etc/config/network
+```
 
 # ESXi
 
