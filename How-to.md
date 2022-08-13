@@ -60,11 +60,17 @@ Copy content of diffconfig to x86_64.config
 sed -i '$ised -i '"'"'s/OpenWrt/WYC/g'"'"' /etc/config/system' openwrt/package/lean/default-settings/files/zzz-default-settings
 ```
 
-### ip, dns, gateway, broadcast, dhcp
+### gateway, broadcast, dns
 ``` shell
-sed -i '$i\ \ \ \ \ \ \ \ option gateway '"'"'192.168.7.2'"'"'' /etc/config/network
-sed -i '$i\ \ \ \ \ \ \ \ option broadcast '"'"'192.168.7.255'"'"'' /etc/config/network
-sed -i '$i\ \ \ \ \ \ \ \ option dns '"'"'223.5.5.5\ 223.6.6.6\ 119.29.29.29\ 114.114.114.114'"'"'' /etc/config/network
+sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option gateway \\x27192.168.7.2\\x27\x27 /etc/config/network' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i\ \ \ \ \ \ \ \ option gateway \x27192.168.7.2\x27' /etc/config/network
+#        option gateway '192.168.7.2'
+sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option broadcast \\x27192.168.7.255\\x27\x27 /etc/config/network' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i\ \ \ \ \ \ \ \ option broadcast \x27192.168.7.255\x27' /etc/config/network
+#        option broadcast '192.168.7.255'
+sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option dns \\x27223.6.6.6\\ 223.5.5.5\\ 119.29.29.29\\ 114.114.114.114\\x27\x27 /etc/config/network' package/lean/default-settings/files/zzz-default-settings
+#sed -i '$i\ \ \ \ \ \ \ \ option dns \x27223.6.6.6\ 223.5.5.5\ 119.29.29.29\ 114.114.114.114\x27' /etc/config/network
+#        option dns '223.6.6.6 223.5.5.5 119.29.29.29 114.114.114.114'
 ```
 
 # ESXi
