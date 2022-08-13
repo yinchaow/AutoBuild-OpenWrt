@@ -73,6 +73,20 @@ sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option dns \\x27223.6.6.6\\ 223.5
 #        option dns '223.6.6.6 223.5.5.5 119.29.29.29 114.114.114.114'
 ```
 
+### dhcp
+``` shell
+# Disable dhcp
+sed -i '$ised -i \x27s\/option\\ start\\ \\x27100\\x27\/option\\ ignore\\ \\x271\\x27\/g\x27 /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i 's/option\ start\ \x27100\x27/option\ ignore\ \x271\x27/g' /etc/config/dhcp
+#        option ignore '1'
+sed -i '$ised -i \x27\/limit\/d\x27\ /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i '/limit/d' /etc/config/dhcp
+#        option limit '150'
+sed -i '$ised -i \x27\/leasetime\/d\x27\ /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i '/leasetime/d' /etc/config/dhcp
+#        option leasetime '12h'
+```
+
 # ESXi
 
 ``` shell
