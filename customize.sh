@@ -27,9 +27,9 @@ sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option broadcast '"'"'"'"'192.168
 sed -i '$ised -i \x27$i\\ \\ \\ \\ \\ \\ \\ \\ option dns '"'"'"'"'223.6.6.6\\ 223.5.5.5\\ 119.29.29.29\\ 114.114.114.114'"'"'"'"'\x27 /etc/config/network' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #7. Disable dhcp
-#sed -i '$ised -i \x27s\/option\\ start\\ \\x27100\\x27\/option\\ ignore\\ \\x271\\x27\/g\x27 /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
-#sed -i '$ised -i \x27s\/start\ '"'"'"'"'100'"'"'"'"'\/ignore\ '"'"'"'"'1'"'"'"'"'\/g\x27 /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
-#sed -i '$ised\ -i\ \x27s\/start\\ '"'"'"'"'100'"'"'"'"'\/ignore\\ '"'"'"'"'1'"'"'"'"'\/g\x27\ \/etc\/config\/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i '$ised -i \x27s\/option\\ start\\ \\x27100\\x27\/option\\ ignore\\ \\x271\\x27\/g\x27 /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i '$ised -i \x27s\/start\ '"'"'"'"'100'"'"'"'"'\/ignore\ '"'"'"'"'1'"'"'"'"'\/g\x27 /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i '$ised\ -i\ \x27s\/start\\ '"'"'"'"'100'"'"'"'"'\/ignore\\ '"'"'"'"'1'"'"'"'"'\/g\x27\ \/etc\/config\/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
 sed -i '$ised -i '"'"'s/start/ignore/g'"'"' /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
 sed -i '$ised -i '"'"'s/100/1/g'"'"' /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
 sed -i '$ised -i \x27\/limit\/d\x27\ /etc/config/dhcp' openwrt/package/lean/default-settings/files/zzz-default-settings
