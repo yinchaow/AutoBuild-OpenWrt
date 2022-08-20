@@ -98,24 +98,24 @@ jobs:
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
-    - name: Download package
-      working-directory: ./openwrt
-      run: |
-        make download -j$(nproc)
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
+    ＃- name: Download package
+    ＃  working-directory: ./openwrt
+    ＃  run: |
+    ＃    make download -j$(nproc)
+    ＃    find dl -size -1024c -exec ls -l {} \;
+    ＃    find dl -size -1024c -exec rm -f {} \;
 
-    - name: Build firmware
-      working-directory: ./openwrt
-      run: |
-        echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
+    ＃- name: Build firmware
+    ＃  working-directory: ./openwrt
+    ＃  run: |
+    ＃    echo -e "$(nproc) thread build."
+    ＃    make -j$(nproc) V=s
 
-    - name : Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: OpenWrt
-        path: openwrt/bin
+    ＃- name : Upload artifact
+    ＃  uses: actions/upload-artifact@master
+    ＃  with:
+    ＃    name: OpenWrt
+    ＃    path: openwrt/bin
 
     - name: Generate release tag
       id: tag
@@ -131,4 +131,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        files: openwrt/bin/targets/x86/64/*
+        files: openwrt/package/lean/default-settings/files/zzz-default-settings
