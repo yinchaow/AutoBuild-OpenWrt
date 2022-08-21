@@ -7,19 +7,15 @@
 
 name: Build_x86_64
 
-on: 
-  release:
-    types: [published]
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
-  push:
-    branches: 
-      - test
-
-  #schedule:
-  #  - cron: 0 8 * * 5
-  
-  #watch:
-  #  types: [started]
 
 jobs:
   build:
