@@ -37,3 +37,7 @@ sed -i '$ised -i \x27\/leasetime\/d\x27\ /etc/config/dhcp' openwrt/package/lean/
 
 # Replace with JerryKuKu’s Argon
 #rm openwrt/package/lean/luci-theme-argon -rf
+
+#8. Set pushbot
+sed -i '$iecho "config serverchan '"'"'serverchan'"'"'" > /etc/config/serverchan' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i '$iecho "        option serverchan_ipv6 '"'"'0'"'"'" >> /etc/config/serverchan' openwrt/package/lean/default-settings/files/zzz-default-settings
