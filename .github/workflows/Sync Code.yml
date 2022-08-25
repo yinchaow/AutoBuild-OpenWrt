@@ -58,3 +58,11 @@ jobs:
       env:
         DOWNSTREAM_BRANCH: master
       run: git push origin $DOWNSTREAM_BRANCH
+
+    - name: Notify telegram
+      uses: yanzay/notify-telegram@v0.1.0
+      if: always()
+      with:
+        chat: 1095730383
+        token: 5637339918:AAFXqNZbV28ftgUIWwKH4rqYBqmpM_Zc9tM
+        status: ${{ job.status }}
