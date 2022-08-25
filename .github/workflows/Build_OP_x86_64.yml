@@ -140,3 +140,11 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         files: openwrt/bin/targets/x86/64/*
+
+    - name: Notify telegram
+      uses: yanzay/notify-telegram@v0.1.0
+      if: always()
+      with:
+        chat: 1095730383
+        token: 5637339918:AAFXqNZbV28ftgUIWwKH4rqYBqmpM_Zc9tM
+        status: ${{ job.status }}
