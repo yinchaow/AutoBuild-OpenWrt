@@ -21,6 +21,13 @@ on:
   #watch:
   #  types: [started]
 
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -98,13 +105,39 @@ jobs:
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
     - name: Build firmware
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
+
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
         path: openwrt/bin
+
+    - name: Generate release tag
+      id: tag
+      if: (!cancelled())
+      run: |
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+        echo "::set-output name=status::success"
+
+    - name: Upload firmware to release
+      uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        files: openwrt/bin/targets/linux/rockchip/armv8/*
+
+    - name: Notify telegram
+      uses: yanzay/notify-telegram@v0.1.0
+      if: always()
+      with:
+        chat: 1095730383
+        token: 5637339918:AAFXqNZbV28ftgUIWwKH4rqYBqmpM_Zc9tM
+        status: ${{ job.status }}
